@@ -13,7 +13,7 @@ function App() {
 	const theme = createTheme({
 		palette: {
 			primary: {
-				main: '#6b5b95', // Выберите цветовую палитру на ваш вкус
+				main: '#6b5b95',
 			},
 			secondary: {
 				main: '#feb236',

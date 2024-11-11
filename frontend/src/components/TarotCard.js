@@ -1,6 +1,4 @@
-// frontend/src/components/TarotCard.js
-
-import { Card, CardContent, Typography } from '@mui/material'
+import { Button, Card, CardContent, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import ReactCardFlip from 'react-card-flip'
 
@@ -16,7 +14,7 @@ function TarotCard({ name, description, image }) {
 			{/* Front Side */}
 			<Card onClick={handleClick} style={{ cursor: 'pointer' }}>
 				<img
-					src='/images/back.jpg'
+					src='/img/image.png'
 					alt='Back of card'
 					style={{ width: '100%' }}
 				/>
@@ -28,6 +26,27 @@ function TarotCard({ name, description, image }) {
 				<CardContent>
 					<Typography variant='h5'>{name}</Typography>
 					<Typography variant='body2'>{description}</Typography>
+					<Button
+						variant='outlined'
+						color='secondary'
+						onClick={() => {
+							const message = `Я вытащил карту "${name}": ${description}`
+							if (navigator.share) {
+								navigator.share({
+									title: 'Моё гадание на Таро',
+									text: message,
+									url: window.location.href,
+								})
+							} else {
+								alert(
+									'Функция "Поделиться" не поддерживается вашим устройством.'
+								)
+							}
+						}}
+						style={{ marginTop: '10px' }}
+					>
+						Поделиться
+					</Button>
 				</CardContent>
 			</Card>
 		</ReactCardFlip>
