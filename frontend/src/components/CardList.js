@@ -1,8 +1,9 @@
+// frontend/src/components/CardList.js
+
+import { Button, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import tarotCards from '../data/tarotCards'
 import TarotCard from './TarotCard'
-// Импортируйте компоненты из '@mui/material'
-import { Button, Typography } from '@mui/material'
 
 function CardList() {
 	const [selectedCard, setSelectedCard] = useState(null)
@@ -13,15 +14,11 @@ function CardList() {
 	}
 
 	return (
-		<div style={{ textAlign: 'center', marginTop: '20px' }}>
+		<div>
 			{selectedCard ? (
-				<TarotCard
-					name={selectedCard.name}
-					description={selectedCard.description}
-					image={selectedCard.image}
-				/>
+				<TarotCard {...selectedCard} />
 			) : (
-				<Typography variant='h6'>
+				<Typography variant='h6' gutterBottom>
 					Нажмите кнопку, чтобы вытянуть карту
 				</Typography>
 			)}
