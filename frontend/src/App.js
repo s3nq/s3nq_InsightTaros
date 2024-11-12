@@ -1,40 +1,45 @@
-// frontend/src/App.js
-
-import { Container, Typography } from '@mui/material'
+import { Container, CssBaseline, Paper, Typography } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import React from 'react'
-import './App.css'
 import CardList from './components/CardList'
-import { useTelegram } from './hooks/useTelegram'
-
 function App() {
-	useTelegram()
-
 	const theme = createTheme({
 		palette: {
+			mode: 'dark',
 			primary: {
-				main: '#6b5b95',
+				main: '#ff9800',
 			},
 			secondary: {
-				main: '#feb236',
+				main: '#f44336',
+			},
+			background: {
+				default: '#121212',
+				paper: '#1e1e1e',
 			},
 		},
 		typography: {
-			fontFamily: 'Roboto, sans-serif',
+			fontFamily: 'Montserrat, sans-serif',
 		},
 	})
 
 	return (
 		<ThemeProvider theme={theme}>
-			<Container
-				maxWidth='sm'
-				style={{ textAlign: 'center', marginTop: '20px' }}
+			<CssBaseline />
+			<Paper
+				style={{
+					minHeight: '100vh',
+					backgroundImage: 'url(/images/background.jpg)',
+					backgroundSize: 'cover',
+					backgroundPosition: 'center',
+					padding: '20px',
+				}}
 			>
-				<Typography variant='h4' gutterBottom>
-					Гадание на Таро
-				</Typography>
-				<CardList />
-			</Container>
+				<Container maxWidth='md' style={{ textAlign: 'center' }}>
+					<Typography variant='h4' gutterBottom style={{ color: '#fff' }}>
+						Гадание на Таро
+					</Typography>
+					<CardList />
+				</Container>
+			</Paper>
 		</ThemeProvider>
 	)
 }
