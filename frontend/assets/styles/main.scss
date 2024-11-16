@@ -1,0 +1,10 @@
+// assets/styles/main.scss
+
+@use 'variables' as *;
+
+body {
+	font-family: $font-family;
+	background-color: #f8f9fa;
+	margin: 0;
+	padding: 0;
+}
